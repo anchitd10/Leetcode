@@ -23,6 +23,7 @@
  * };
  */
 
+
 // lowest common ancestor approach
 class Solution {
 public:
