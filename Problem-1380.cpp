@@ -60,3 +60,35 @@ public:
         return ans;
     }
 };
+
+//Optimal-1-------->First check min element row then max element in that col and compare
+class Solution {
+public:
+    vector<int> luckyNumbers (vector<vector<int>>& matrix) {
+        int n = matrix.size(), m = matrix[0].size();
+        vector<int> ans;
+
+        for(int i=0; i<n; i++){
+            int row=i, minRow=INT_MAX, minRowCol;
+            for(int j=0; j<m; j++){
+                if(minRow > matrix[row][j]){
+                    minRow = matrix[row][j];
+                    minRowCol = j;
+                }
+            }
+
+            int col = minRowCol, maxCol=INT_MIN, maxColRow;
+            for(int k=0; k<n; k++){
+                if(maxCol < matrix[k][col]){
+                    maxCol = matrix[k][col];
+                    maxColRow = k;
+                }
+            }
+
+            if(i == maxColRow){
+                ans.push_back(matrix[i][minRowCol]);
+            }
+        }
+        return ans;
+    }
+};
