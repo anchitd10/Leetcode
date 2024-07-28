@@ -10,6 +10,8 @@
         "utility": "cpp",
         "xstring": "cpp",
         "xutility": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "ctime": "cpp",
+        "xlocale": "cpp"
     }
 }
