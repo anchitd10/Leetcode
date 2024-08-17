@@ -12,6 +12,7 @@
         "xutility": "cpp",
         "limits": "cpp",
         "ctime": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "format": "cpp"
     }
 }
