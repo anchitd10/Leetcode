@@ -8,6 +8,7 @@
 // Output: 11
 // Explanation: i = 0, j = 2, values[i] + values[j] + i - j = 8 + 5 + 0 - 2 = 11
 
+//dynamic programming
 class Solution {
 public:
     int maxScoreSightseeingPair(vector<int>& values) {
