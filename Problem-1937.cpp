@@ -16,3 +16,28 @@
 // However, you must subtract abs(2 - 1) + abs(1 - 0) = 2 from your score.
 // Your final score is 11 - 2 = 9.
 
+//brute force of dp  --->  manually calculate sum from prev row for each column
+class Solution {
+public:
+    long long maxPoints(vector<vector<int>>& points) {
+        int m = points.size();  //row
+        int n = points[0].size();  //column
+
+        vector<long long> prev(n);
+        int score = 0;
+
+        for(int col=0; col<n; col++){
+            prev[col] = points[0][col];
+        }
+        for(int row=1; row<m; row++){
+            vector<long long> curr(n);
+            for(int col=0; col<n; col++){
+                for(int k=0; k<n; k++){  //iterate through previous row
+                curr[col] = max(curr[col], prev[k] + points[row][col] - abs(col-k));
+                }
+            }
+            prev = curr;
+        }
+        return *max_element(begin(prev), end(prev));
+    }
+};
