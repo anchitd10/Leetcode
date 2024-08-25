@@ -13,6 +13,7 @@
         "limits": "cpp",
         "ctime": "cpp",
         "xlocale": "cpp",
-        "format": "cpp"
+        "format": "cpp",
+        "xiosbase": "cpp"
     }
 }
