@@ -30,3 +30,25 @@ public:
         return new2DArray;
     }
 };
+
+// O(n) approach
+// row = i/n   n->no. of cols in 1D Array
+// col = i%n;
+class Solution {
+public:
+    vector<vector<int>> construct2DArray(vector<int>& original, int m, int n) {
+        vector<vector<int>> new2DArray(m, vector<int>(n));
+
+        if(original.size() != m*n){
+            return {};
+        }
+
+        for(int i=0; i<original.size(); i++){
+            int row = i/n;
+            int col = i%n;
+
+            new2DArray[row][col] = original[i];
+        }
+        return new2DArray;
+    }
+};
