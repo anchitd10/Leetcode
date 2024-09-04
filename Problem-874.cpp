@@ -11,7 +11,7 @@
 // East means +X direction.
 // South means -Y direction.
 // West means -X direction.
-// There can be obstacle in [0,0].
+// There can be obstacle in [0,0]. 
 // Example:
 // Input: commands = [4,-1,4,-2,4], obstacles = [[2,4]]
 // Output: 65
