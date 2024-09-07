@@ -32,11 +32,11 @@
 class Solution {
 public:
     bool check(ListNode* head, TreeNode* root){
-        if(head == NULL){
+        if(head == NULL){ //elements found
             return true;
         }
 
-        if(root == NULL){
+        if(root == NULL){ //elements not found
             return false;
         }
 
