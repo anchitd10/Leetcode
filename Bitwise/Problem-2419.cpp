@@ -16,25 +16,24 @@
 class Solution {
 public:
     int longestSubarray(vector<int>& nums) {
-        int maxVal = 0;
-        int streak = 0;
+        int maxVal = nums[0];
         int result = 0;
-
-        for(auto num : nums){
-            if(num > maxVal){
-                maxVal = num;
-                streak = 0;
-            }
-            
-            if(num == maxVal){
-                streak++;
-            }
-            else{
-                streak = 0;
-            }
-
-            result = max(streak,result);
+        
+        for(int num : nums) {
+            maxVal = max(maxVal, num);
         }
+        
+        int streak = 0;
+        
+        for(int num : nums) {
+            if(num == maxVal) {
+                streak++;
+                result = max(result, streak);
+            } else {
+                streak = 0;
+            }
+        }
+        
         return result;
     }
 };
