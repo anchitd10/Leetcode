@@ -51,8 +51,8 @@ public:
 };
 
 // 2nd approach
-use XOR operator instead of adding for every vowelState that way we dont need modulo
-if XOR for even count then automatically 0
+// use XOR operator instead of adding for every vowelState that way we dont need modulo
+// if XOR for even count then automatically 0
 
 class Solution {
 public:
