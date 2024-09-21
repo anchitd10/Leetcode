@@ -12,6 +12,7 @@
 class Solution {
 public:
     void solve(int curr, int n, vector<int>& result){
+        //now for the selected int check for the next place and order them
         if(curr > n) return;
         
         result.push_back(curr);
@@ -28,6 +29,7 @@ public:
     vector<int> lexicalOrder(int n) {
         vector<int> result;
 
+        //check for each int in the first place
         for(int startNum = 1; startNum <= 9; startNum++){
             solve(startNum, n, result);
         }
