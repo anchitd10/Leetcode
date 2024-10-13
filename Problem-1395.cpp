@@ -12,40 +12,40 @@
 
 class Solution {
 public:
-    int count = 0;
-    void solve(vector<int>& rating, vector<int>& use, int index, int prev) {
-        if (use.size() == 3) {
-            count++;
-            return;
-        }
-        for (int i = index; i < rating.size(); i++) {
-            if (prev == -1 || rating[i] > rating[prev]) {
-                use.push_back(rating[i]);
-                solve(rating, use, i + 1, i);
-                use.pop_back();
-            }
-        }
-    }
-
-    void solve2(vector<int>& rating, vector<int>& use2, int index, int prev) {
-        if (use2.size() == 3) {
-            count++;
-            return;
-        }
-        for (int i = index; i < rating.size(); i++) {
-            if (prev == -1 || rating[i] < rating[prev]) {
-                use2.push_back(rating[i]);
-                solve2(rating, use2, i + 1, i);
-                use2.pop_back();
-            }
-        }
-    }
     int numTeams(vector<int>& rating) {
         int n = rating.size();
-        vector<int> use;
-        vector<int> use2;
-        solve(rating, use, 0, -1);
-        solve2(rating, use2, 0, -1);
+        int count = 0;
+ 
+        //count valid teams
+        for (int j = 0; j < n; j++) {
+            int less_left = 0, more_left = 0;
+            int less_right = 0, more_right = 0;
+
+            //count how many soldiers before 'j' are less or more
+            for (int i = 0; i < j; i++) {
+                if (rating[i] < rating[j]) {
+                    less_left++;
+                } else if (rating[i] > rating[j]) {
+                    more_left++;
+                }
+            }
+
+            //count how many soldiers after 'j' are less or more
+            for (int k = j + 1; k < n; k++) {
+                if (rating[k] < rating[j]) {
+                    less_right++;
+                } else if (rating[k] > rating[j]) {
+                    more_right++;
+                }
+            }
+
+            //count increasing teams (less_left * more_right)
+            count += less_left * more_right;
+
+            //count decreasing teams (more_left * less_right)
+            count += more_left * less_right;
+        }
+
         return count;
     }
 };
