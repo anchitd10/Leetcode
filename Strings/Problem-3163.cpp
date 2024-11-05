@@ -1,4 +1,4 @@
-// Problem-3163: String Compression
+// Problem-3163: String Compression III
 
 // Given a string word, compress it using the following algorithm:
 // Begin with an empty string comp. While word is not empty, use the following operation:
