@@ -42,3 +42,37 @@ public:
         return true;
     }
 };
+
+
+//optimise above code to check if no sort then dont unnecessarily run the for loop
+class Solution {
+public:
+    bool canSortArray(vector<int>& nums) {
+        int n = nums.size();
+        bool swapped = true;
+
+        for(int i=0; i<n; i++){
+            swapped = false;
+            for(int j=0; j<n-i-1; j++){
+                if(nums[j] <= nums[j+1]){
+                    continue;
+                }
+                else{
+                    if(__builtin_popcount(nums[j]) == __builtin_popcount(nums[j+1])){
+                        int temp = nums[j];
+                        nums[j] = nums[j+1];
+                        nums[j+1] = temp;
+                        swapped = true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+            }
+            if(swapped == false){
+                break;
+            }
+        }
+        return true;
+    }
+};
