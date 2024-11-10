@@ -37,9 +37,7 @@ public:
 
     int minimumSubarrayLength(vector<int>& nums, int k) {
         int n = nums.size();
-
         int result = INT_MAX;
-
         int i = 0, j = 0;
 
         vector<int> vec(32, 0);
