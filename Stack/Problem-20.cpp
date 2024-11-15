@@ -48,7 +48,9 @@ class Stack {
 private:
     StackNode* top;
 public:
-    Stack() { top = nullptr; }
+    Stack() {
+        top = nullptr;
+    }
 
     void push(char x) {
         StackNode* node = new StackNode(x);
