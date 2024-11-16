@@ -73,7 +73,7 @@ public:
 
         //next windows
         while(j < n){
-            if(nums[j] == nums[j-1]+1){
+            if(nums[j] == nums[j-1] + 1){
                 count++;
             }
             else{
