@@ -37,7 +37,7 @@ public:
         
         // dp
         vector<vector<long long>> dp(n + 1, vector<long long>(m + 1, 0));
-        dp[0][0] = 1; // Base case: 1 way to form an empty string
+        dp[0][0] = 1;
         
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j <= m; ++j) {
