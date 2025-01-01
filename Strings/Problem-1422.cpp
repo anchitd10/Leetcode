@@ -22,7 +22,7 @@ public:
 
         for (char c : s) {
             if (c == '1') {
-                ++countOnes;
+                countOnes++;
             }
         }
 
