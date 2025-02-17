@@ -1,10 +1,11 @@
-// Problem-104: Maximum Depth of Binary Tree
+// Problem-111: Minimum Depth of Binary Tree
 
-// Given the root of a binary tree, return its maximum depth.
-// A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+// Given a binary tree, find its minimum depth.
+// The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
+// Note: A leaf is a node with no children.
 // Example 1:
 // Input: root = [3,9,20,null,null,15,7]
-// Output: 3
+// Output: 2
 
 /**
  * Definition for a binary tree node.
@@ -19,15 +20,19 @@
  */
 class Solution {
 public:
-    int maxDepth(TreeNode* root) {
+    int minDepth(TreeNode* root) {
         if(root == NULL){
             return 0;
         }
 
-        int l = maxDepth(root->left);
-        int r = maxDepth(root->right);
+        int l = minDepth(root->left);
+        int r = minDepth(root->right);
 
-        int res = max(l,r);
+        if (l == 0 || r == 0) {
+            return max(l, r) + 1;
+        }
+
+        int res = min(l,r);
 
         return res + 1;
     }
