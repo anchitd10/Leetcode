@@ -17,7 +17,7 @@
 // 3. 2 steps + 1 step
 
 
-// Brute Force - Recursion:Memoization
+// Brute Force - Recursion:Memoization - Top-Down
 class Solution {
 public:
     int t[50];
@@ -43,5 +43,28 @@ public:
     int climbStairs(int n) {
         memset(t, -1, sizeof(t));
         return solve(n);
+    }
+};
+
+
+// Space Optimised - Bottom-Up
+class Solution {
+public:
+    int climbStairs(int n) {
+        if(n == 1 || n == 2 || n ==3){
+            return n;
+        }
+
+        vector<int> arr(n+1);
+
+        arr[0] = 0;
+        arr[1] = 1;
+        arr[2] = 2;
+
+        for(int i=3; i<=n; i++){
+            arr[i] = arr[i-1] + arr[i-2];
+        }
+        
+        return arr[n];
     }
 };
