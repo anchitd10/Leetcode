@@ -19,7 +19,8 @@
 // It is impossible to make all the values equal to 2.
 
 
-// Logic: (1). We first take the second highest element(valid number) in the array and convert the highest identical elements to the current valid number.
+// Logic:
+// (1). We first take the second highest element(valid number) in the array and convert the highest identical elements to the current valid number.
 // (2). We then go in decreasing order of the elements in the array until all the elements are equal to the latest valid number i.e k.
 // (3). So by this logic the number of operations = number of unique elements present greater than k(latest valid number)
 
