@@ -1,5 +1,6 @@
-// Problem-2843: Count Symmetric IntegersYou are given two positive integers low and high.
+// Problem-2843: Count Symmetric Integers
 
+// You are given two positive integers low and high.
 // An integer x consisting of 2 * n digits is symmetric if the sum of the first n digits of x is equal to the sum of the last n digits of x. Numbers with an odd number of digits are never symmetric.
 // Return the number of symmetric integers in the range [low, high].
 // Example 1:
@@ -40,6 +41,33 @@ public:
 
             if(leftSum == rightSum){
                 count++;
+            }
+        }
+        return count;
+    }
+};
+
+
+// Approach-2
+class Solution {
+public:
+    int countSymmetricIntegers(int low, int high) {
+        int count = 0;
+
+        for(int num = low; num <= high; num++){
+            if(num >= 10 && num <= 99 && num % 11 == 0){
+                count++;
+            }
+            else if(num >= 1000 && num <= 9999){
+                int first = num/1000;
+                int second = (num/100) % 10;
+
+                int third = (num/10) % 10;
+                int fourth = num % 10;
+
+                if(first + second == third + fourth){
+                    count++;
+                }
             }
         }
         return count;
