@@ -39,6 +39,9 @@ public:
                 maxKPos = i;
             }
 
+            // here we found the base subarray that must contain the min and max said element but now we will get all remaining elements between the smaller position and position of the culprit element.
+            // so if temp is -ve it means culprit element is already between base subarray
+            // if temp is positive then that many elements can also form a new subarray
             long long smaller = min(minKPos, maxKPos);
             long long temp = smaller - culpritIdx;
 
