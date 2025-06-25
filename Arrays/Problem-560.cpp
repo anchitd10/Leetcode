@@ -33,3 +33,29 @@ public:
         return count;
     }
 };
+
+
+// Optimized using HashMap
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        int n = nums.size();
+        unordered_map<int, int> mp;
+        
+        int count = 0;
+        int cumSum = 0;
+        mp.insert({0, 1});    // initial cumulative sum
+
+        for(int i=0; i<n; i++){
+            cumSum += nums[i];
+
+            if(mp.find(cumSum - k) != mp.end()){
+                count += mp[cumSum - k];
+            }
+
+            mp[cumSum]++;
+        }
+
+        return count;
+    }
+};
