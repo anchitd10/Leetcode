@@ -39,3 +39,28 @@ public:
         return -1;
     }
 };
+
+
+// Approach-2:
+class Solution {
+public:
+    int findJudge(int n, vector<vector<int>>& trust) {
+        vector<int> degree(n + 1);  // 1-based indexing
+
+        for (vector<int>& vec : trust) {
+            int a = vec[0];
+            int b = vec[1];
+
+            degree[a] = -1;
+            degree[b]++;
+        }
+
+        for (int i = 1; i <= n; i++) {  // 1-based indexing
+            if (degree[i] == n-1) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+};
