@@ -5,6 +5,11 @@
 // Input: n = 3
 // Output: 5
 
+// Concept for top-down dynamic programming approach:
+// 1. A binary search tree (BST) can be constructed by choosing each number from 1 to n as the root.
+// 2. For each choice of root, the left subtree can be formed using numbers less than the root, and the right subtree using numbers greater than the root.
+// 3. The number of unique BSTs for a given n can be computed recursively by summing the products of the number of unique BSTs for the left and right subtrees.
+// 4. Use memoization to store results for previously computed values to avoid redundant calculations.
 
 class Solution {
 public:
